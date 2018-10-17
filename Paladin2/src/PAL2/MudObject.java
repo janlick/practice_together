@@ -14,4 +14,12 @@ public class MudObject {
 		this.describe=describe;
 		this.shortDescribe=shortDescribe;
 	}
+	public String shortDescribe() 
+	{
+		return shortDescribe;
+	}
+	public String describe()
+	{
+		return describe;
+	}
 }

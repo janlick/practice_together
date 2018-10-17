@@ -34,7 +34,7 @@ public class Start {
 	public void login() {
 		Acount ac = null;
 		while (ac == null) {
-			System.out.println("請輸入你的帳號: 或輸入new 創建新帳號");
+			System.out.println("#FFC0CB請輸入你的帳號: 或輸入new 創建新帳號");
 			String a = "";
 			try {
 				a = reader.readLine();

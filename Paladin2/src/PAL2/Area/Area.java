@@ -11,4 +11,9 @@ public class Area extends MudObject{
 	public String describe;
 	public String shortDescribe;
 	LinkedList<Room> allRoom=new LinkedList<Room>();
+	Room north,sourth,east,west,up,down;
+	public boolean readArea() 
+	{
+		return true;
+	}
 }
