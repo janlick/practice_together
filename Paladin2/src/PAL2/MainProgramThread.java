@@ -4,17 +4,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
 
 import PAL2.Area.Room;
 
 public class MainProgramThread implements Runnable{
+	public static Map<String,Integer> direction=new HashMap<String,Integer>();
+    public static final String[] directions= { "east","west","south","north","up","down"};
     public static final int east=0,west=1,south=2,north=3,up=4,down=5;
 	InputStreamReader input = new InputStreamReader(System.in);
 	BufferedReader reader = new BufferedReader(input);
 	Character character;
 	    public MainProgramThread(Character character) {
+	    	for(int s=0;s<directions.length;s++)
+	    	{
+	    	    direction.put(directions[s], s);
+	    	}
            this.character=character;
 	    }
 
@@ -39,13 +47,12 @@ public class MainProgramThread implements Runnable{
 	    }
 	    public String targetfill(String target)
 	    {
-	    	String[] directioncommand= {"east","west","north","south","up","down"};
-	    	for(int a=0;a<directioncommand.length;a++)
+	    	for(int a=0;a<directions.length;a++)
 	    	{
 	    		//lookSystem.out.println(directioncommand[a]+"  "+command[0]);
-	    		if(directioncommand[a].startsWith(target))
+	    		if(directions[a].startsWith(target))
 	    		{
-	    			target=directioncommand[a];
+	    			target=directions[a];
 	    			break;
 	    		}
 	    	}
@@ -55,13 +62,12 @@ public class MainProgramThread implements Runnable{
 	    }
 	    public String commandfill(String command)
 	    {
-	    	String[] directioncommand= {"east","west","north","south","up","down"};
-	    	for(int a=0;a<directioncommand.length;a++)
+	    	for(int a=0;a<directions.length;a++)
 	    	{
 	    		//lookSystem.out.println(directioncommand[a]+"  "+command[0]);
-	    		if(directioncommand[a].startsWith(command))
+	    		if(directions[a].startsWith(command))
 	    		{
-	    			command=directioncommand[a];
+	    			command=directions[a];
 	    			break;
 	    		}
 	    	}
@@ -79,6 +85,10 @@ public class MainProgramThread implements Runnable{
 	    }
 	    public void publiccommand(String[] command) 
 	    {
+	    	if(direction.containsKey(command[0]))
+	    	{
+	    		character.move(direction.get(command[0]));
+	    	}
 	    	switch(command[0]) 
 	    	{
 	    	case "look":
@@ -91,49 +101,18 @@ public class MainProgramThread implements Runnable{
 	    			System.out.println(character.look(command[1]));
 	    		}
 	    		break;
-	    	case "east":
-	    		if(command.length==1)
-	    		{
-	    			character.move(east);
-	    		}
-	    		break;
-	    	case "west":
-	    		if(command.length==1)
-	    		{
-	    			character.move(west);
-	    		}
-	    		break;
-	    	case "south":
-	    		if(command.length==1)
-	    		{
-	    			character.move(south);
-	    		}
-	    		break;
-	    	case "north":
-	    		if(command.length==1)
-	    		{
-	    			character.move(north);
-	    		}
-	    		break;
-	    	case "up":
-	    		if(command.length==1)
-	    		{
-	    			character.move(up);
-	    		}
-	    		break;
-	    	case "down":
-	    		if(command.length==1)
-	    		{
-	    			character.move(down);
-	    		}
-	    		break;
 	    	case "open":
 	    		if(command.length==2)
 	    		{
 	    			System.out.println(character.open(command[1]));
 	    		}
 	    		break;
-	    	
+	    	case "close":
+	    		if(command.length==2)
+	    		{
+	    			System.out.println(character.close(command[1]));
+	    		}
+	    		break;
 	    	}
 	    }
 }

@@ -65,9 +65,19 @@ public class Door {
 		} else {
 			return "這扇門被鎖住了 你需要鑰匙來打開它";
 		}
-
 	}
-
+	public String close(Room room, Character character) {
+		if (doorstate == 1) {
+			doorstate =2;
+            return "你關閉了一扇門";
+		} else if(doorstate==0){
+			return "這個方向沒有門喔";
+		}
+		else
+		{
+            return "這邊的門已經關著了";
+		}
+	}
 	String keyId;
 
 }

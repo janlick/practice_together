@@ -26,45 +26,41 @@ public class Character extends MudObject {
 	}
     public String look(String command)
     {
-    	switch(command) 
+    	if(MainProgramThread.direction.containsKey(command))
     	{
-    	case "east":
-    		return room.doorArray[east].look(room, this);
-    	case "west":
-    		return room.doorArray[west].look(room, this);
-    	case "south":
-    		return room.doorArray[south].look(room, this);
-    	case "north":
-    		return room.doorArray[north].look(room, this);
-    	case "up":
-    		return room.doorArray[up].look(room, this);
-    	case "down":
-    		return room.doorArray[down].look(room, this);
+    		Door door=room.doorArray[MainProgramThread.direction.get(command)];
+    		if(door==null)
+    			return "這個方向沒有甚麼特別的";
+    		return room.doorArray[MainProgramThread.direction.get(command)].look(room, this);
     	}
     	return "你看不到那樣東西";
     }
     public String open(String command)
     {
-    	switch(command) 
+    	if(MainProgramThread.direction.containsKey(command))
     	{
-    	case "east":
-    		return room.doorArray[east].open(room, this);
-    	case "west":
-    		return room.doorArray[west].open(room, this);
-    	case "south":
-    		return room.doorArray[south].open(room, this);
-    	case "north":
-    		return room.doorArray[north].open(room, this);
-    	case "up":
-    		return room.doorArray[up].open(room, this);
-    	case "down":
-    		return room.doorArray[down].open(room, this);
+    		Door door=room.doorArray[MainProgramThread.direction.get(command)];
+    		if(door==null)
+    			return "這個方向沒有門喔";
+    		return room.doorArray[MainProgramThread.direction.get(command)].open(room, this);
     	}
     	return "你想要打開什麼呢?";
+    }
+    public String close(String command)
+    {
+    	if(MainProgramThread.direction.containsKey(command))
+    	{
+    		Door door=room.doorArray[MainProgramThread.direction.get(command)];
+    		if(door==null)
+    			return "這個方向沒有門喔";
+    		return room.doorArray[MainProgramThread.direction.get(command)].close(room, this);
+    	}
+    	return "你想要關閉什麼呢?";
     }
     public void move(int direct)
     {
     	Door door=room.doorArray[direct];
+    	//System.out.println(door.toString());
     	if(door!=null)
     	{
     		if(door.doorstate<2)
