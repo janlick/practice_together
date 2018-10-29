@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class Acount {
 	String acountName;
+	String acountID="01";
 	String password;
 	String playtime;
 
@@ -19,7 +20,7 @@ public class Acount {
 	public boolean saveAcount() {
 		FileWriter writer;
 		try {
-			writer = new FileWriter("savefile/"+acountName);
+			writer = new FileWriter("PAL2/savefile/"+acountName);
 			StringBuilder msg = new StringBuilder(password);
 			int userKey = 6;
 			for (int i = 0; i < msg.length(); i++) {
@@ -38,7 +39,7 @@ public class Acount {
 	public String loadAcount() 
 	{
 		try {
-			FileReader fr=new FileReader("savefile/"+acountName);
+			FileReader fr=new FileReader("PAL2/savefile/"+acountName);
 			BufferedReader br = new BufferedReader(fr);
 			StringBuilder msg = new StringBuilder(br.readLine());
 			int userKey = 6;

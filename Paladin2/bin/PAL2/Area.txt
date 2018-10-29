@@ -1,0 +1,13 @@
+TYPE=Area
+Name=Mirle
+ID=A01
+describe=盟立自動化
+shortDescribe=Mirle
+************************
+TYPE=Room
+Name=3A1
+ID=R01
+describe=奕維的座位
+shortDescribe=維坐
+EXIT={e,Ro2,L{},}
+************************

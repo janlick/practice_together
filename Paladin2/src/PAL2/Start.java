@@ -17,35 +17,45 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import PAL2.Area.Area;
+import PAL2.Area.Room;
+import PAL2.Initial.InitialArea;
+
+
+
 public class Start {
 	InputStreamReader input = new InputStreamReader(System.in);
 	BufferedReader reader = new BufferedReader(input);
 	Acount acount;
 
 	public static void main(String[] argv) {
+		Acount acount;
+		List<Area> allArea= InitialArea.ini();
 		Start s = new Start();
-		s.login();
-
-		// MainProgramThread mainthread =new MainProgramThread();
-		// Thread t=new Thread(mainthread);
-		// t.start();
+		acount=s.login();
+		Room room=allArea.get(0).allRoom.get("R01");
+		Character character=new Character(acount.acountName,acount.acountID,"一隻新鮮的初心者","初心者",new Equipment[10],100,100,100,room);
+		room.objectList.add(character);
+		 MainProgramThread mainthread =new MainProgramThread(character);
+		 Thread t=new Thread(mainthread);
+		 t.start();
 	}
 
-	public void login() {
+	public Acount login() {
 		Acount ac = null;
 		while (ac == null) {
-			System.out.println("#FFC0CB請輸入你的帳號: 或輸入new 創建新帳號");
+			System.out.println("請輸入你的帳號: 或輸入"+C.YELLOW_BOLD_BRIGHT+"new"+C.RESET+"創建新帳號");
 			String a = "";
 			try {
 				a = reader.readLine();
 				if (a.equals("new")) {
-					System.out.println("創建帳號中 請景輸入妳想創建的帳號");
+					System.out.println("創建帳號中 請輸入妳想創建的帳號");
 					a = reader.readLine();
 					if (checkAccount(a) != null) {
 						System.out.println("此帳號已有人使用 請重新登入 或使用其他新帳號");
 						continue;
 					} else {
-						System.out.println("創建帳號中 請景輸入妳的密碼");
+						System.out.println("創建帳號中 請輸入妳的密碼");
 						String p = reader.readLine();
 						ac = new Acount(a, p);
 						ac.saveAcount();
@@ -55,7 +65,7 @@ public class Start {
 						System.out.println("此組帳號不存在!!!");
 
 					} else {
-						System.out.println(" 請景輸入妳的密碼");
+						System.out.println("請輸入妳的密碼");
 						String p = reader.readLine();
 						ac = new Acount(a, p);
 						if (p.equals(ac.loadAcount())) {
@@ -71,17 +81,18 @@ public class Start {
 					}
 
 				}
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
+		return ac;
 	}
 
 	public File checkAccount(String accountName) {
 		File Returnfile = null;
-		File dir = new File("./savefile");
+		File dir = new File("./PAL2/savefile");
 		File[] listOfFiles = dir.listFiles();
 		
 		for (File file : listOfFiles) {
