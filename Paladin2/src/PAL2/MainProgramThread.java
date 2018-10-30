@@ -88,7 +88,7 @@ public class MainProgramThread implements Runnable{
 	    {
 	    	if(direction.containsKey(command[0]))
 	    	{
-	    		character.move(direction.get(command[0]));
+	    		System.out.println(character.move(direction.get(command[0])));
 	    	}
 	    	switch(command[0]) 
 	    	{

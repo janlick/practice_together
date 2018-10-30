@@ -3,17 +3,13 @@ package PAL2;
 public class MudObject {
 
 	public String Name;
-	public String Id;
 	public String describe;
-	public String shortDescribe;
 	public MudObject()
 	{
 	}
-	public MudObject(String Name,String Id,String describe,String shortDescribe)
+	public MudObject(String Name,String describe)
 	{
 		this.Name=Name;
-		this.Id=Id;
 		this.describe=describe;
-		this.shortDescribe=shortDescribe;
 	}
 }

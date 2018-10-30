@@ -1,4 +1,4 @@
-package PAL2.Equipment;
+package PAL2.Item;
 
 import PAL2.MudObject;
 

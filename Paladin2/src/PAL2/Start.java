@@ -21,8 +21,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import PAL2.Area.Area;
 import PAL2.Area.Room;
 import PAL2.Character.Character;
-import PAL2.Equipment.Equipment;
 import PAL2.Initial.InitialArea;
+import PAL2.Item.Equipment;
 
 public class Start {
 	InputStreamReader input = new InputStreamReader(System.in);

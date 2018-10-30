@@ -34,7 +34,7 @@ public class InitialArea {
 				byte[] b = new byte[stream.available()];
 				stream.read(b);
 				String filestring=new String(b);
-				System.out.println(filestring.replace("\\r\\n","\r\n"));
+				//System.out.println(filestring.replace("\\r\\n","\r\n"));
 				JSONObject jb=new JSONObject(filestring);
 				JSONObject areajb=jb.getJSONObject("Area");
 				Area area=new Area(areajb.getString("Name"),areajb.getString("ID"),areajb.getString("describe"),areajb.getString("shortDescribe"));
@@ -45,7 +45,7 @@ public class InitialArea {
 					JSONObject roomjb=ja.getJSONObject(a);
 					Room room=new Room(roomjb.getString("Name"),roomjb.getString("ID"),roomjb.getString("describe"),roomjb.getString("shortDescribe"),roomjb.getJSONArray("EXIT"));
 					area.allRoom.put(roomjb.getString("ID"),room);
-				    System.out.println(ja.get(a).toString());
+				 //   System.out.println(ja.get(a).toString());
 				}
 				area.setconnect();
 				listArea.add(area);

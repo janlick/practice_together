@@ -20,7 +20,7 @@ public class Area extends MudObject {
 	//
 	// }
 	public Area(String name, String id, String describe, String shortDescribe) {
-		super(name, id, describe, shortDescribe);
+		super(name, describe);
 	}
 
 	public void setconnect() {
