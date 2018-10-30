@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import PAL2.Area.Room;
+import PAL2.Character.Character;
 
 public class MainProgramThread implements Runnable{
 	public static Map<String,Integer> direction=new HashMap<String,Integer>();
@@ -102,13 +103,13 @@ public class MainProgramThread implements Runnable{
 	    		}
 	    		break;
 	    	case "open":
-	    		if(command.length==2)
+	    		if(command.length>1)
 	    		{
 	    			System.out.println(character.open(command[1]));
 	    		}
 	    		break;
 	    	case "close":
-	    		if(command.length==2)
+	    		if(command.length>1)
 	    		{
 	    			System.out.println(character.close(command[1]));
 	    		}

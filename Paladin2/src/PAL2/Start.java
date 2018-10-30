@@ -1,4 +1,5 @@
 package PAL2;
+
 //*******************************************************************
 //programer: Yiwei,Theresa
 //startTime:2018/09/27
@@ -19,9 +20,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import PAL2.Area.Area;
 import PAL2.Area.Room;
+import PAL2.Character.Character;
+import PAL2.Equipment.Equipment;
 import PAL2.Initial.InitialArea;
-
-
 
 public class Start {
 	InputStreamReader input = new InputStreamReader(System.in);
@@ -30,21 +31,22 @@ public class Start {
 
 	public static void main(String[] argv) {
 		Acount acount;
-		List<Area> allArea= InitialArea.ini();
+		List<Area> allArea = InitialArea.ini();
 		Start s = new Start();
-		acount=s.login();
-		Room room=allArea.get(0).allRoom.get("R01");
-		Character character=new Character(acount.acountName,acount.acountID,"一隻新鮮的初心者","初心者",new Equipment[10],100,100,100,room);
+		acount = s.login();
+		Room room = allArea.get(0).allRoom.get("R01");
+		Character character = new Character(acount.acountName, acount.acountID, "一隻新鮮的初心者", "初心者", new Equipment[10],
+				100, 100, 100, room);
 		room.objectList.add(character);
-		 MainProgramThread mainthread =new MainProgramThread(character);
-		 Thread t=new Thread(mainthread);
-		 t.start();
+		MainProgramThread mainthread = new MainProgramThread(character);
+		Thread t = new Thread(mainthread);
+		t.start();
 	}
 
 	public Acount login() {
 		Acount ac = null;
 		while (ac == null) {
-			System.out.println("請輸入你的帳號: 或輸入"+C.YELLOW_BOLD_BRIGHT+"new"+C.RESET+"創建新帳號");
+			System.out.println("請輸入你的帳號: 或輸入" + C.YELLOW_BOLD_BRIGHT + "new" + C.RESET + "創建新帳號");
 			String a = "";
 			try {
 				a = reader.readLine();
@@ -70,11 +72,9 @@ public class Start {
 						ac = new Acount(a, p);
 						if (p.equals(ac.loadAcount())) {
 							System.out.println("Login sucess");
-						}
-						else 
-						{
+						} else {
 							System.out.println("Login fail");
-							ac=null;
+							ac = null;
 							continue;
 						}
 
@@ -94,7 +94,7 @@ public class Start {
 		File Returnfile = null;
 		File dir = new File("./PAL2/savefile");
 		File[] listOfFiles = dir.listFiles();
-		
+
 		for (File file : listOfFiles) {
 			if (file.isFile() && file.getName().equals(accountName)) {
 				System.out.println(file.getName());

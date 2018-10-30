@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 
 import PAL2.MudObject;
-import PAL2.Character;
+import PAL2.Character.Character;
 
 public class Room extends MudObject{
 	public String[] way= {"東","西","南","北","上","下"};

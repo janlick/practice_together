@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import PAL2.MudObject;
-import PAL2.Character;
+import PAL2.Character.Character;
 
 public class Door {
 
@@ -62,7 +62,12 @@ public class Door {
 		if (doorstate == 2) {
 			doorstate =1;
             return "你打開了一扇門";
-		} else {
+		} 
+		else if(doorstate==1)
+			return "門已經開著了!!";
+		else if(doorstate==0)
+			return "這個方向沒有門喔!!";
+		else {
 			return "這扇門被鎖住了 你需要鑰匙來打開它";
 		}
 	}
