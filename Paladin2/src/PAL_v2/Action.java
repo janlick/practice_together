@@ -11,7 +11,6 @@ package PAL_v2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import PAL_v2.*;
 
 public class Action {
 
@@ -19,7 +18,7 @@ public class Action {
 	static BufferedReader reader = new BufferedReader(input);
 	static String inputNull;
 
-	public static void Action1_1() throws IOException {
+	public static void Action1() throws IOException {
 		String inputDirection;
 		String inputYN;
 		System.out.println("");
@@ -78,11 +77,11 @@ public class Action {
 				map.lobby();
 				Action.Action1_5();
 				break;
-				
+
 			} else if (inputDirection.toUpperCase().equals("R")) {
 				System.out.println("");
 				map.roomXiaoYao();
-				Action1_1();
+				Action1();
 				break;
 			}
 			if (inputDirection.toUpperCase().equals("M") && Scene.booleanScene_l2 == false) {
@@ -126,7 +125,7 @@ public class Action {
 			} else if (inputDirection.toUpperCase().equals("R")) {
 				System.out.println("");
 				map.roomXiaoYao();
-				Action1_1();
+				Action1();
 				break;
 			}
 			if (inputDirection.toUpperCase().equals("T")) {
@@ -169,12 +168,16 @@ public class Action {
 			} else if (inputDirection.toUpperCase().equals("1")) {
 				System.out.println("");
 				map.room2();
-				break;
+				System.out.println("");
+				System.out.println("暫時沒什麼任務可進行...");
+				continue;
 			}
 			if (inputDirection.toUpperCase().equals("2")) {
 				System.out.println("");
 				map.room3();
-				break;
+				System.out.println("");
+				System.out.println("暫時沒什麼任務可進行...");
+				continue;
 			}
 			if (inputDirection.toUpperCase().equals("U")) {
 				System.out.println("");

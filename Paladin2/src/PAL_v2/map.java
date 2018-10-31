@@ -145,7 +145,7 @@ public static void room2(){
 
 	public static void room3(){
 	
-	System.out.println(
+	System.out.print(
 			"╬══════════╬\r\n" + 
 			"║╳╳╳╳柴　　　　　║\r\n" + 
 			"║╳╳╳╳　　　　　　║\r\n" + 

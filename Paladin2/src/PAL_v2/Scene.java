@@ -41,7 +41,8 @@ public class Scene {
 
 	static String string_k1 = "李大娘︰逍遙你來的正好，快把門口那個臭要飯的趕走，免得妨礙咱們做生意記得喔！等一下到廚房來幫忙端菜。";
 
-	static String string_k2 = "\"桌上擺著一份豐盛的酒菜，嗯～看起來很好吃的樣子\"\r\n" + "李大娘︰逍遙！快把桌上的酒菜端上樓去！\r\n" + "李大娘︰對了！就是那盤，趕快端去給樓上的客官。";
+	static String string_k2 = "\"桌上擺著一份豐盛的酒菜，嗯～看起來很好吃的樣子\"\r\n" + "李大娘︰逍遙！快把桌上的酒菜端上樓去！\r\n" + "李大娘︰對了！就是那盤，趕快端去給樓上的客官。\r\n"
+			+ "\"李逍遙端起韭菜\"";
 
 	static String string1_5 = "李逍遙︰兩位大爺！酒菜送來了。\r\n" + "拿進來！\r\n" + "苗人嘍囉︰嗯～這是什麼酒呀？一點味道也沒有！\r\n"
 			+ "李逍遙︰哦！大爺您有所不知，此酒乃本地的名產～桂花酒，清香甘醇無比，連當朝的貴妃娘娘都愛喝的不得了呢！\r\n" + "苗人嘍囉︰拿走！拿走！我們喝慣烈酒才不要娘們喝的酒。\r\n"
@@ -67,7 +68,7 @@ public class Scene {
 		System.out.println("");
 	}
 
-	public static void Scene1_1() throws IOException {
+	public static void Scene1() throws IOException {
 		array = string1_1.split("\r\n");
 		System.out.println("Scene1 starts, please press <ENTER> each step to continue the story...");
 		inputNull = reader.readLine();
