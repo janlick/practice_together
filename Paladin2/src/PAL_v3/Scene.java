@@ -1,7 +1,6 @@
-package PAL_v2;
+package PAL_v3;
 
 import java.io.*;
-import PAL_v2.map;
 
 public class Scene {
 	static InputStreamReader input = new InputStreamReader(System.in);

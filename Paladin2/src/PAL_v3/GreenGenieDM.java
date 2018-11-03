@@ -1,4 +1,4 @@
-package PAL_v2;
+package PAL_v3;
 
 /*
  * ºñ¦â¤p§¯¡G
@@ -14,8 +14,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
-import PAL_v2.*;
 
 public class GreenGenieDM {
 //	public static void greengenieattack() {

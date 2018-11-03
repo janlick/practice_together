@@ -1,4 +1,4 @@
-package PAL_v2;
+package PAL_v3;
 
 /*
  * <第一幕的人物動作>場景：李逍遙的房間
@@ -23,7 +23,7 @@ public class Action {
 		String inputYN;
 		System.out.println("");
 		int a = 1;
-		label: while (a == 1) {
+		while (a == 1) {
 			System.out.print("請問逍遙要往哪個方向走？<E/W/S/N>");
 			inputDirection = reader.readLine();
 			if (inputDirection.toUpperCase().equals("E")) {
@@ -34,7 +34,7 @@ public class Action {
 					if (inputYN.toUpperCase().equals("Y")) {
 						Scene.Scene1_2();
 						a = 1;
-						continue label;
+						continue;
 					}
 					if (inputYN.toUpperCase().equals("N")) {
 						a = 1;
