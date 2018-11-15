@@ -182,7 +182,7 @@ public static void Kitchen(){
 //		roomXiaoYao_2();
 //		SecondFloor();
 //		SecondFloor_1();
-//		lobby();
+	lobby();
 //		room1();
 //		room2();
 //		room3();
