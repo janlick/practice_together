@@ -1,8 +1,8 @@
-package PAL_v3;
+package PAL_v4;
 
 import java.io.IOException;
 
-public class task2 extends PAL_v3.main {
+public class task2 extends PAL_v4.main {
 	public static void main(String[] args) throws IOException {
 
 		XiaoYao.LevelUp();
